@@ -1,0 +1,135 @@
+.home {
+  position: relative;
+  top: 0px;
+  bottom: 0px;
+  left: 170px;
+  right: 0px;
+  height: 20px;
+  width: 100px;
+}
+
+.homeicon {
+  margin-left: 30px;
+  display: block;
+  width: 20px;
+  height:20px;
+  height: auto;
+}
+
+.album {
+  position: relative;
+  top: 0px;
+  bottom: 0px;
+  left: 170px;
+  right: 0px;
+  height: 20px;
+  width: 100px;
+}
+
+.albumicon {
+  margin-left: 30px;
+  display: block;
+  width: 20px;
+  height:20px;
+  height: auto;
+}
+
+.users {
+  position: relative;
+  top: 0px;
+  bottom: 0px;
+  left: 170px;
+  right: 0px;
+  height: 20px;
+  width: 100px;
+}
+
+.usersicon {
+  margin-left: 30px;
+  display: block;
+  width: 20px;
+  height:20px;
+  height: auto;
+}
+
+.photos {
+  position: relative;
+  top: 0px;
+  bottom: 0px;
+  left: 170px;
+  right: 0px;
+  height: 20px;
+  width: 100px;
+}
+
+.photosicon {
+    margin-top: 2px;
+  margin-left: 30px;
+  display: block;
+  width: 20px;
+  height:20px;
+  height: auto;
+}
+
+
+.overlay {
+  opacity: 0;
+  transition: 1.5s ease;
+  background-color: black;
+}
+
+.home:hover .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  width: 75px;
+  opacity: 1;
+}
+
+.album:hover .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  width: 90px;
+  opacity: 1;
+}
+
+.users:hover .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  width: 75px;
+  opacity: 1;
+}
+
+.photos:hover .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  width: 85px;
+  opacity: 1;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+
