@@ -120,7 +120,7 @@ var postUserPhotos = function(userData, albumData, data, sCtr){
             disp += "<img  class= \"modal-content\" id =  \"img" + photoData['id'] + "\" >"
             disp += "<div class = \"caption\" id = \"caption" + photoData['id'] + "\"></div>"
             disp += "<a href = \"profile.html#"+userData['id']+"\"class = \"caption\" >User: "+userData['name']+"</a>" //id = \"uploader"+getUserName(findAlbum(photoData, data),data)['id']+"\"
-            disp += "<a href = \"photo.html#0#"+findAlbum(photoData, data)['id']+"\" class = \"caption\" >Album: "+findAlbum(photoData, data)['title']+"</a>"
+            disp += "<a href = \"photo.html#0#"+findAlbum(photoData, data)['id']+"\" onclick = \" setTimeout(location.reload.bind(location), 10);\" class = \"caption\" >Album: "+findAlbum(photoData, data)['title']+"</a>"
             disp += "</div>"
             ctr++;
         }
@@ -176,7 +176,7 @@ var postAlbumPhotos = function(albumData, data, sCtr){
             disp += "<img  class= \"modal-content\" id =  \"img" + photoData['id'] + "\" >"
             disp += "<div class = \"caption\" id = \"caption" + photoData['id'] + "\"></div>"
             disp += "<a href = \"profile.html#"+getUserName(albumData['userId'], data)['id']+"\"class = \"caption\" >User: "+getUserName(albumData['userId'], data)['name']+"</a>" //id = \"uploader"+getUserName(findAlbum(photoData, data),data)['id']+"\"
-            disp += "<a href = \"photo.html#0#"+albumData['id']+"\" class = \"caption\" >Album: "+albumData['title']+"</a>"
+            disp += "<a href = \"photo.html#0#"+albumData['id']+"\" onclick = \" setTimeout(location.reload.bind(location), 10);\" class = \"caption\" >Album: "+albumData['title']+"</a>"
             disp += "</div>"
             ctr++;
         }
@@ -221,7 +221,7 @@ var postAll = function(data, sCtr){
                 disp += "<img  class= \"modal-content\" id =  \"img"+photoData['id']+"\" >"
                 disp += "<div class = \"caption\" id = \"caption"+photoData['id']+"\"></div>"
                 disp += "<a href = \"profile.html#"+getUserName(getAlbumData(photoData['albumId'], data)['userId'], data)['id']+"\"class = \"caption\" >User: "+ getUserName(getAlbumData(photoData['albumId'], data)['userId'], data)['name']+"</a>" //id = \"uploader"+getUserName(findAlbum(photoData, data),data)['id']+"\"
-                disp += "<a href = \"photo.html#0#"+getAlbumData(photoData['albumId'], data)['id']+"\" class = \"caption\" >Album: "+getAlbumData(photoData['albumId'], data)['title']+"</a>"
+                disp += "<a href = \"photo.html#0#"+getAlbumData(photoData['albumId'], data)['id']+"\" onclick = \" setTimeout(location.reload.bind(location), 10);\"class = \"caption\" >Album: "+getAlbumData(photoData['albumId'], data)['title']+"</a>"
                 disp += "</div>"
                 ctr++;
         }

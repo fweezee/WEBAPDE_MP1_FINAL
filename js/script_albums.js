@@ -177,16 +177,19 @@ var postAll = function(data, scrollCtr){
                     disp += "<img  class= \"modal-content\" id =  \"img"+photoData['id']+"\" >"
                     disp += "<div class = \"caption\" id = \"caption"+photoData['id']+"\"></div>"
                     disp += "<a href = \"profile.html#"+findAlbum(photoData, data)['userId']+"\"class = \"caption\" >User: "+getUserName(findAlbum(photoData, data),data)['name']+"</a>" //id = \"uploader"+getUserName(findAlbum(photoData, data),data)['id']+"\"
-                    disp += "<a href = \"photo.html#0#"+findAlbum(photoData, data)['id']+"\" class = \"caption\" >Album: "+findAlbum(photoData, data)['title']+"</a>"
+                    disp += "<a href = \"photo.html#0#"+findAlbum(photoData, data)['id']+"\"  class = \"caption\" >Album: "+findAlbum(photoData, data)['title']+"</a>"
                     disp += "</div>"
                     ctr++;
                 }
             }
 
+
             disp += "</div>"
             $(".albums_container").append(disp);
 
     }
+
+
 
     $('img').click(function(){
         var img = $('.myImg');
@@ -204,6 +207,7 @@ var postAll = function(data, scrollCtr){
         }
         $('span').click(function(){
             modal.style.display = "none";
+
         })
     });
 }
