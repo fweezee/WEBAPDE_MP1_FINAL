@@ -90,7 +90,7 @@ $(document).ready(function () {
 });
 
 function postShiz(data, scrollCtr){
-    for(var i = scrollCtr; i >= 0 && i >= scrollCtr - 10; i--){
+    for(var i = scrollCtr; i >= 0 && i > scrollCtr - 10; i--){
         var postData = data.posts[i];
         var postID = postData['userId']
 
