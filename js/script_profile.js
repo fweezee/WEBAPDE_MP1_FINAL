@@ -35,7 +35,7 @@ $(document).ready(function () {
 
     $(window).scroll(function () {
         sticky();
-    });
+    })
 
 
     var userId = window.location.href.split("#")[1];
@@ -63,12 +63,26 @@ $(document).ready(function () {
         disp += "<li>Catchphrase: "+userData['company']['catchPhrase']+"</li>"
         disp += "<li>Business Strategy: "+ userData['company']['bs']+"</li>"
         disp += "</ul>"
+
+    //UNG MAP
+        disp +=    "<div id=\"googleMap\" style=\"width:100%;height:400px;\"></div>"
+         disp += "<script>"
+     disp += "function myMap() {"
+            disp +=     "var mapProp= {"
+                disp +=     " center:new google.maps.LatLng("+userData['address']['geo']['lat']+","+userData['address']['geo']['lng']+"),"
+    console.log(userData['address']['geo']['lng'])
+                disp +=      " zoom:5, };"
+            disp +=    " var map=new google.maps.Map(document.getElementById(\"googleMap\"),mapProp);}"
+    disp +=    "</script>"
+    disp +=    "<script src=\"https://maps.googleapis.com/maps/api/js?key=AIzaSyA9xCVQmk_5BJo306wxyMGs5bVWZ_ZwuMI&callback=myMap\"></script>"
+    //UNG MAP
+
         disp += "</div>"
     $(".profile_info").append(disp);
 
     var scrollCtr = 0;
 
-    profilePost(data, userData, scrollCtr)
+    //profilePost(data, userData, scrollCtr)
 
     // document.addEventListener('scroll', function (event) {
     //     if (document.body.scrollHeight ==
@@ -79,18 +93,8 @@ $(document).ready(function () {
     //     }
     // });
 
-    document.addEventListener('scroll', function (event) {
-        if (document.body.scrollHeight ==
-            document.body.scrollTop +
-            window.innerHeight) {
-            scrollCtr+=10
-            profilePost(data, userData, scrollCtr)
-        }
-    });
-
-    for(var i = 0; i < data.posts.length; i++){
+    for(var i = data.posts.length-1; i >=0; i--){
         postData = data.posts[i];
-        console.log(data.posts.length)
 
         if(postData['userId'] == userData['id']) {
             var disp = "<div class = \"profile_post_box\">\n";
@@ -106,7 +110,7 @@ $(document).ready(function () {
     $(".profile_album").append(disp);
 
     var ctr_al = 0;
-    for(var i = 0; i < data.albums.length ; i++){
+    for(var i = 0; i < data.albums.length && ctr_al < 4; i++){
         var albumData = data.albums[i]
         if(userData['id'] == albumData['userId']){
             var disp = "<div class = \"profile_album_box\">\n"
@@ -133,8 +137,8 @@ $(document).ready(function () {
             }
 
         disp += "</div>"
-
         $(".profile_album").append(disp);
+            ctr_al++;
         }
     }
 
@@ -158,9 +162,8 @@ $(document).ready(function () {
 });
 
 function profilePost(data, userData, scrollCtr){
-    for(var i = scrollCtr; i < data.posts.length ; i++){
+    for(var i = data.posts.length-1; i >= 0 ; i--){
         postData = data.posts[i];
-        console.log(data.posts.length)
 
         if(postData['userId'] == userData['id']) {
             var disp = "<div class = \"profile_post_box\">\n";
@@ -199,7 +202,6 @@ var getImage = function(userData, data){
 
     for(var i = 0; i < data.photos.length; i++){
         var photoData = data.photos[i]
-            console.log(photoData['id'])
 
 
         if(photoData['id'] == userData){

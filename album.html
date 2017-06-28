@@ -9,6 +9,7 @@
     <!--	<link rel="stylesheet" media="only screen and (min-width: 1024px) and (max-width:)" href="./assets/css/tablet-style.css">-->
     <link rel="stylesheet" href="./css/albums-style.css">
      <link rel="stylesheet" href="./css/navigation_menu-style.css">
+    <script src="./js/jquery-3.2.1.min.js"></script>
 </head>
 <body>
 
@@ -56,9 +57,19 @@
 
                 </a>
                 <span>
-                   <img src="./img/mag.png" alt="" id="mag">
+                   <img src="./img/mag.png" alt="" class="mag" onclick = "search()">
                     <input type="text" id="search" placeholder="Search here...">
                 </span>
+                <script>
+            function search(){
+                window.location.href = 'search.html#' + document.getElementById('search').value;
+            }
+            $("#search").keyup(function(event){
+                if(event.keyCode == 13){
+                    search()
+                }
+            });
+        </script>
         </nav>
     </div>
 
@@ -73,7 +84,7 @@
 </body>
 <script src="./js/jquery-3.2.1.min.js"></script>
 <script src="./js/data.js"></script>
-<script src="js/script_albums.js"></script>
+<script src="./js/script_albums.js"></script>
 <script>
 
 </script>

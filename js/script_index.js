@@ -64,19 +64,22 @@ $(document).ready(function () {
 
     var scrollCtr = data.posts.length-1;
     postShiz(data, scrollCtr)
-    // document.addEventListener('scroll', function (event) {
-    //     if (document.body.scrollHeight ==
-    //         document.body.scrollTop +
-    //         window.innerHeight) {
-    //         scrollCtr-=10
-    //         postShiz(data, scrollCtr)
-    //     }
-    // });
-    $("#posts").on("click", "button", function(){
-        scrollCtr-=10
-        postShiz(data, scrollCtr)
-        this.remove();
+
+
+    document.addEventListener('scroll', function (event) {
+        if (document.body.scrollHeight ==
+            document.body.scrollTop +
+            window.innerHeight) {
+            scrollCtr-=10
+            postShiz(data, scrollCtr)
+        }
     });
+
+    // $("#posts").on("click", "button", function(){
+    //     scrollCtr-=10
+    //     postShiz(data, scrollCtr)
+    //     this.remove();
+    // });
 
     // $("button").click(function () {
     //     scrollCtr-=10
@@ -102,10 +105,10 @@ function postShiz(data, scrollCtr){
         $("#posts").append(disp);
     }
 
-    if(scrollCtr - 10 > 0) {
-        var disp = "<button type = \"button\">Show more</button>"
-        $("#posts").append(disp);
-    }
+    // if(scrollCtr - 10 > 0) {
+    //     var disp = "<button type = \"button\">Show more</button>"
+    //     $("#posts").append(disp);
+    // }
 }
 
 var getUserName = function(postData, data){

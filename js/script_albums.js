@@ -43,13 +43,26 @@ $(document).ready(function () {
     var userId = window.location.href.split("#")[1];
 
     //var userData = getUserName(userId, data);
-
+    var scrollCtr = 0;
 
     if(userId == 0){
-        postAll(data)
+        postAll(data, scrollCtr)
     }else{
-        postSome(userId, data)
+        postSome(userId, data, scrollCtr)
     }
+
+
+
+    document.addEventListener('scroll', function (event) {
+        if (document.body.scrollHeight ==
+            document.body.scrollTop +
+            window.innerHeight) {
+            scrollCtr+=10
+            if(userId == 0)
+                postAll(data, scrollCtr)
+
+        }
+    });
 
 
 
@@ -86,9 +99,9 @@ var getPhoto = function(id, data){
     }
 }
 
-var postSome = function(userData, data){
+var postSome = function(userData, data, scrollCtr){
 
-    for(var i = 0; i < data.albums.length; i++) {
+    for(var i = scrollCtr; i < data.albums.length; i++) {
         var albumData = data.albums[i]
         console.log(userData + " " + albumData['userId'])
         if (userData == albumData['userId']) {
@@ -111,6 +124,7 @@ var postSome = function(userData, data){
                     disp += "<a href = \"profile.html#"+findAlbum(photoData, data)['userId']+"\"class = \"caption\" >User: "+getUserName(findAlbum(photoData, data),data)['name']+"</a>" //id = \"uploader"+getUserName(findAlbum(photoData, data),data)['id']+"\"
                     disp += "<a href = \"photo.html#0#"+findAlbum(photoData, data)['id']+"\" class = \"caption\" >Album: "+findAlbum(photoData, data)['title']+"</a>"
                     disp += "</div>"
+                    ctr++
                 }
             }
 
@@ -119,12 +133,31 @@ var postSome = function(userData, data){
 
         }
     }
+
+    $('img').click(function(){
+        var img = $('.myImg');
+        var modal = document.getElementById('myModal'+this.id)
+        var modalImg = $("#img" + this.id);
+        var captionText = document.getElementById("caption"+this.id);
+        modal.style.display = "block";
+        var newSrc = getPhoto(this.id, data)['url'];
+        modalImg.attr('src', newSrc);
+        captionText.innerHTML = getPhoto(this.id, data)['title'];
+        //DITO PROBLEMA NG CLOSE HINDI MAKITA UNG SPAN
+        var span = document.getElementById("close"+this.id);
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        $('span').click(function(){
+            modal.style.display = "none";
+        })
+    });
 }
 
-var postAll = function(data){
+var postAll = function(data, scrollCtr){
 
 
-    for(var i = 0; i < data.albums.length; i++){
+    for(var i = scrollCtr; i < data.albums.length && i < scrollCtr + 10; i++){
         var albumData = data.albums[i]
 
             var disp = "<div class = \"profile_album_box\">\n"
@@ -154,6 +187,25 @@ var postAll = function(data){
             $(".albums_container").append(disp);
 
     }
+
+    $('img').click(function(){
+        var img = $('.myImg');
+        var modal = document.getElementById('myModal'+this.id)
+        var modalImg = $("#img" + this.id);
+        var captionText = document.getElementById("caption"+this.id);
+        modal.style.display = "block";
+        var newSrc = getPhoto(this.id, data)['url'];
+        modalImg.attr('src', newSrc);
+        captionText.innerHTML = getPhoto(this.id, data)['title'];
+        //DITO PROBLEMA NG CLOSE HINDI MAKITA UNG SPAN
+        var span = document.getElementById("close"+this.id);
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+        $('span').click(function(){
+            modal.style.display = "none";
+        })
+    });
 }
 
 

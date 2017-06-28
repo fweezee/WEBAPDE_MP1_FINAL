@@ -78,7 +78,7 @@ a:hover {
 }
 */
 #mainNav nav span{
-    
+
     position: relative;
 }
 
@@ -115,26 +115,25 @@ a:hover {
     background: #000;
 }
 
-.stickyTitle{
-    margin-top: 3px !important;
-    font-size: 2.5em !important;
-}
+/*.stickyTitle{*/
+    /*margin-top: 3px !important;*/
+    /*font-size: 2.5em !important;*/
+/*}*/
 
-.sticky{
-    top: 0;
-    left: 0;
-    z-index: 100;
-    height: 45px !important;
-    position: fixed !important;
-}
+/*.sticky{*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*z-index: 100;*/
+    /*height: 45px !important;*/
+    /*position: fixed !important;*/
+/*}*/
 
-.stickyNav{
-    width: 65% !important;
-    margin: 8px auto 0 26vh !important;
-}
+/*.stickyNav{*/
+    /*width: 65% ;*/
+    /*margin: 8px auto 0 26vh !important;*/
+/*}*/
 
 
-.stickyBody{
-    
-    margin-top: 75px !important;
-}
+/*.stickyBody{*/
+    /*margin-top: 75px !important;*/
+/*}*/
